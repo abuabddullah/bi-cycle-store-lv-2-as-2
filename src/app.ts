@@ -11,4 +11,14 @@ app.use(cors());
 // application routes
 app.use('/api/v1/students', StudentRoutes);
 
+// testing
+app.get('/', async (req, res) => {
+  res.send('Hello World!');
+});
+
+// invalid route
+app.get('*', (req, res) => {
+  res.send('Invalid route');
+});
+
 export default app;
