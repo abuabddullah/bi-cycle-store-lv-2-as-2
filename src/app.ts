@@ -1,6 +1,9 @@
 import cors from 'cors';
 import express, { Application } from 'express';
-import { StudentRoutes } from './app/modules/student/student.route';
+import ProductRoutes from './app/modules/product/product.route';
+import OrderRoutes from './app/modules/order/order.route';
+import { errorHandler } from './middlewares/errorHandler';
+import { CustomError } from './utils/customError';
 
 const app: Application = express();
 
@@ -9,16 +12,20 @@ app.use(express.json());
 app.use(cors());
 
 // application routes
-app.use('/api/v1/students', StudentRoutes);
+app.use('/api', ProductRoutes);
+app.use('/api', OrderRoutes);
 
 // testing
 app.get('/', async (req, res) => {
   res.send('Hello World!');
 });
 
-// invalid route
-app.get('*', (req, res) => {
-  res.send('Invalid route');
+// Simulate a route not found
+app.use('*', (req, res, next) => {
+  next(new CustomError('Resource not found', 404, 'NotFoundError'));
 });
+
+// Error Middleware
+app.use(errorHandler);
 
 export default app;
