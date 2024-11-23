@@ -1,5 +1,5 @@
 import { z } from 'zod';
-// Zod Schema for validation
+// Zod Schema for validation of product
 export const productZodSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   brand: z.string().min(1, 'Brand is required'),

@@ -14,6 +14,10 @@ export const createProductService = async (productData: IProduct) => {
 };
 
 // Get All Bicycles
+/** এখানে mongoose এর সাহায্যে special query করা হয়েছে
+ * যদি user কোন searchTerm পাঠাত তাহলে সেই key দিয়ে প্রতিটি product এর name, brand, type চেক করে দেখা হবে যদি কোন product এর ভিতরে তার {name, brand, type} এর ভিতরে কোন একটা word এই searchTerm এর সাথে মিলে যায় তাহলে সেইসব গুলো product ই পাওয়া যাবে
+ * আর যদি user কোন searchTerm পাঠাত না তাহলে সব product গুলো পাওয়া যাবে
+ */
 export const getAllProductsService = async (searchTerm?: string) => {
   const query = searchTerm
     ? {

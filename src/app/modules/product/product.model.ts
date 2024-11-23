@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { IProduct } from './product.interface';
 
-// Mongoose Schema
+// Mongoose Schema for Bicycle
 const productSchema = new Schema<IProduct>(
   {
     name: { type: String, required: true },

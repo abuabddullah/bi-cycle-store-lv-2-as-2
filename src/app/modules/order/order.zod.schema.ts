@@ -1,12 +1,11 @@
 import { z } from 'zod';
 
+// Zod Schema for validation of order
 export const orderValidationSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
-  product: z
-    .string()
-    .regex(/^[0-9a-fA-F]{24}$/, {
-      message: 'Invalid product ID format (must be a MongoDB ObjectID)',
-    }),
+  product: z.string().regex(/^[0-9a-fA-F]{24}$/, {
+    message: 'Invalid product ID format (must be a MongoDB ObjectID)',
+  }),
   quantity: z
     .number()
     .int()

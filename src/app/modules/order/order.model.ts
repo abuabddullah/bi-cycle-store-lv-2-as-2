@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import { IOrder } from './order.interface';
 
+// Mongoose Schema for Order
 const orderSchema = new Schema<IOrder>(
   {
     email: { type: String, required: true },
@@ -15,6 +16,7 @@ const orderSchema = new Schema<IOrder>(
   { timestamps: true },
 );
 
+// Create Mongoose Model
 const OrderModel = mongoose.model<IOrder>('Order', orderSchema);
 
 export default OrderModel;

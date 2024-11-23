@@ -14,7 +14,6 @@ export const errorHandler = (
     message: err.message || 'Something went wrong',
     success: false,
     error: errorType,
-    // stack: process.env.NODE_ENV === 'development' ? err.stack : undefined, // Include stack trace only in development
     stack: err.stack ? err.stack : undefined, // Include stack trace
   });
 };
