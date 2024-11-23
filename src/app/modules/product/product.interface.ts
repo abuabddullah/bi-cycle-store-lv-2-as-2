@@ -1,10 +1,12 @@
-export enum BicycleType {
-  Mountain = 'Mountain',
-  Road = 'Road',
-  Hybrid = 'Hybrid',
-  BMX = 'BMX',
-  Electric = 'Electric',
-}
+// export enum BicycleType {
+//   Mountain = 'Mountain',
+//   Road = 'Road',
+//   Hybrid = 'Hybrid',
+//   BMX = 'BMX',
+//   Electric = 'Electric',
+// }
+
+export type BicycleType = 'Mountain' | 'Road' | 'Hybrid' | 'BMX' | 'Electric';
 
 export interface IProduct {
   name: string; // The name of the bicycle

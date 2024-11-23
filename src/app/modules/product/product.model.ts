@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { BicycleType, IProduct } from './product.interface';
+import { IProduct } from './product.interface';
 
 // Mongoose Schema
 const productSchema = new Schema<IProduct>(
@@ -10,7 +10,7 @@ const productSchema = new Schema<IProduct>(
     type: {
       type: String,
       required: true,
-      enum: Object.values(BicycleType),
+      enum: ['Mountain', 'Road', 'Hybrid', 'BMX', 'Electric'],
     },
     description: { type: String },
     quantity: { type: Number, required: true, min: 0 },

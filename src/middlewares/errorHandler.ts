@@ -1,11 +1,11 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { CustomError } from '../utils/customError';
 
 export const errorHandler = (
   err: CustomError | Error,
   req: Request,
   res: Response,
-  next: NextFunction,
+  // next: NextFunction,
 ) => {
   const status = (err instanceof CustomError && err.status) || 500;
   const errorType = (err instanceof CustomError && err.error) || 'ServerError';
